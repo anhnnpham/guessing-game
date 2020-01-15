@@ -1,4 +1,4 @@
-*.json
+# .vscode/
 # Prerequisites
 *.d
 
@@ -31,3 +31,5 @@
 *.exe
 *.out
 *.app
+
+*.json
