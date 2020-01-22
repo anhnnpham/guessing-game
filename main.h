@@ -5,11 +5,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> // random generator
+#include <time.h> // random generator (srand & rand)
 #include <string.h> // strcmp
 
 int difficultySelection();	  
-void guessingGame(int *randNum);
-void again();
+void guessing(const int *randNum);
+void replay();
+int main();
 
 #endif // GUESSING_GAME

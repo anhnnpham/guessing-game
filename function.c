@@ -1,57 +1,61 @@
 int difficultySelection()
 {
-    int difficultMax = 0;
-    char difficulty[10];
-    printf("Easy (e): 1 -> 100, Medium (m): 1 -> 1000, Hard (h): 1 -> 10000?\n");
-    scanf("%s", difficulty);
+    char userChoice[2]; // for user's input character
+    // 3 levels: 100, 1000 & 10000
+    printf("Easy (e): 1 -> 100, Medium (m): 1 -> 1000, Hard (h): 1 -> 10000? ");
+    scanf("%s", userChoice);
     
-    if (strcmp(difficulty, "e") == 0)
+    // you can also use switch case
+    if (strcmp(userChoice, "e") == 0)
     {
-        difficultMax = 100;
+        return 100;
     }
-    else if (strcmp(difficulty, "m") == 0)
+    else if (strcmp(userChoice, "m") == 0)
     {
-        difficultMax = 1000;
+        return 1000;
     }
-    else if (strcmp(difficulty, "h") == 0)
+    else if (strcmp(userChoice, "h") == 0)
     {
-        difficultMax = 10000;
+        return 10000;
     }
-    return difficultMax;
 }
 
-void guessingGame(int *randNum)
+void guessing(const int *numberIn)
 {
-    int guessedNum = 0, counter = 0;
+    int guessedNumber = 0, counter = 0;
     printf("Guess it!\n");
+    
+    // keep looping until the right number is entered
     do
     {
-        scanf("%d", &guessedNum);
-        if (guessedNum < *randNum)
+        scanf("%d", &guessedNumber);
+        if (guessedNumber < *numberIn)
         {
             printf("Higher !\n");
         }
-        else if (guessedNum > *randNum)
+        else if (guessedNumber > *numberIn)
         {
             printf("Lower !\n");
         }
-        counter++;
-    } while (guessedNum != *randNum);
-    printf("%d tries.\n", counter);
+        counter++; // count how many tries it took
+    } 
+    while (guessedNumber != *numberIn);
+    
+    printf("%d tries.\n", counter); // print out
 }
 
-void again()
+void replay()
 {
-    char yesNo[5];
-    printf("Again? 'y' or 'n'.\n");
-    scanf("%s", yesNo);
-    if (strcmp(yesNo, "y") == 0)
-    {
-        main();
+    char yesOrNo[2];
+    printf("Play again? 'y' or 'n': ");
+    scanf("%s", yesOrNo);
+    if (strcmp(yesOrNo, "y") == 0)
+    {   // rerun main function
+        main(); 
         return;
     }
     else
-    {
+    {   // if choose 'n'
         return;
     }
 }
