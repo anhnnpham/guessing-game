@@ -7,10 +7,10 @@
 #include <stdlib.h>
 #include <time.h> // random generator (srand & rand)
 #include <string.h> // strcmp
-
+#include <stdbool.h>
 int difficultySelection();	  
 void guessing(const int *randNum);
-void replay();
+bool isAgain();
 int main();
 
 #endif // GUESSING_GAME

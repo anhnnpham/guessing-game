@@ -40,22 +40,20 @@ void guessing(const int *numberIn)
         counter++; // count how many tries it took
     } 
     while (guessedNumber != *numberIn);
-    
     printf("%d tries.\n", counter); // print out
 }
 
-void replay()
+bool isAgain()
 {
     char yesOrNo[2];
     printf("Play again? 'y' or 'n': ");
     scanf("%s", yesOrNo);
     if (strcmp(yesOrNo, "y") == 0)
     {   // rerun main function
-        main(); 
-        return;
+        return 1;
     }
     else
     {   // if choose 'n'
-        return;
+        return 0;
     }
 }
